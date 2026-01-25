@@ -1,0 +1,345 @@
+{
+  "players": [
+    {
+      "id": "aaron-cheng",
+      "firstName": "Aaron",
+      "lastName": "Cheng",
+      "jerseyNumber": 2,
+      "position": "Right Field",
+      "positions": [
+        "Right Field"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Do It Like That",
+        "artist": "Doja Cat, Central Cee & Tyga"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/aaron-cheng.jpg"
+    },
+    {
+      "id": "anderson-berning",
+      "firstName": "Anderson",
+      "lastName": "Berning",
+      "jerseyNumber": 42,
+      "position": "Catcher",
+      "positions": [
+        "Catcher"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Not Like Us",
+        "artist": "Kendrick Lamar"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/anderson-berning.jpg"
+    },
+    {
+      "id": "christopher-justen",
+      "firstName": "Christopher",
+      "lastName": "Justen",
+      "jerseyNumber": 4,
+      "position": "Left Field",
+      "positions": [
+        "Left Field"
+      ],
+      "battingHand": "Left",
+      "throwingHand": "Left",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Soda Pop",
+        "artist": "Britney Spears"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/christopher-justen.jpg"
+    },
+    {
+      "id": "damon-jung",
+      "firstName": "Damon",
+      "lastName": "Jung",
+      "jerseyNumber": 13,
+      "position": "Center Field",
+      "positions": [
+        "Center Field"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Bloodline",
+        "artist": "Ariana Grande"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/damon-jung.jpg"
+    },
+    {
+      "id": "garo-balabanian",
+      "firstName": "Garo",
+      "lastName": "Balabanian",
+      "jerseyNumber": 18,
+      "position": "Catcher",
+      "positions": [
+        "Catcher"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Break My Stride",
+        "artist": "Matthew Wilder"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/garo-balabanian.jpg"
+    },
+    {
+      "id": "gavin-wu",
+      "firstName": "Gavin",
+      "lastName": "Wu",
+      "jerseyNumber": 28,
+      "position": "Pitcher",
+      "positions": [
+        "Pitcher",
+        "Third Base"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "How We Do",
+        "artist": "The Game & 50 Cent"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/gavin-wu.jpg"
+    },
+    {
+      "id": "gus-mitchell",
+      "firstName": "Gus",
+      "lastName": "Mitchell",
+      "jerseyNumber": 35,
+      "position": "Second Base",
+      "positions": [
+        "Second Base"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Cha Cha",
+        "artist": "D.R.A.M."
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/gus-mitchell.jpg"
+    },
+    {
+      "id": "jackson-evans",
+      "firstName": "Jackson",
+      "lastName": "Evans",
+      "jerseyNumber": 7,
+      "position": "Shortstop",
+      "positions": [
+        "Shortstop"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Tuyo (Narcos Theme)",
+        "artist": "Rodrigo Amarante"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/jackson-evans.jpg"
+    },
+    {
+      "id": "joe-clemenson",
+      "firstName": "Joe",
+      "lastName": "Clemenson",
+      "jerseyNumber": 44,
+      "position": "Right Field",
+      "positions": [
+        "Right Field"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Texas Hold 'Em",
+        "artist": "Beyonc\u00e9"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/joe-clemenson.jpg"
+    },
+    {
+      "id": "samuel-zottarelli",
+      "firstName": "Samuel",
+      "lastName": "Zottarelli",
+      "jerseyNumber": 46,
+      "position": "First Base",
+      "positions": [
+        "First Base"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Elmo Slide",
+        "artist": "Sesame Street"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/samuel-zottarelli.jpg"
+    },
+    {
+      "id": "sawyer-lurie",
+      "firstName": "Sawyer",
+      "lastName": "Lurie",
+      "jerseyNumber": 27,
+      "position": "Center Field",
+      "positions": [
+        "Center Field"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Cruel Summer",
+        "artist": "Taylor Swift"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/sawyer-lurie.jpg"
+    },
+    {
+      "id": "xander-macdonald",
+      "firstName": "Xander",
+      "lastName": "MacDonald",
+      "jerseyNumber": 23,
+      "position": "Pitcher",
+      "positions": [
+        "Pitcher",
+        "Second Base"
+      ],
+      "battingHand": "Right",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Motorcycle Drive By",
+        "artist": "Third Eye Blind"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/xander-macdonald.jpg"
+    },
+    {
+      "id": "zach-baden",
+      "firstName": "Zach",
+      "lastName": "Baden",
+      "jerseyNumber": 29,
+      "position": "Pitcher",
+      "positions": [
+        "Pitcher",
+        "Third Base"
+      ],
+      "battingHand": "Switch",
+      "throwingHand": "Right",
+      "funFact": "",
+      "walkUpSong": {
+        "title": "Deadpool (Minions Remix)",
+        "artist": "Funny Minions Guys",
+        "spotifyUrl": "https://open.spotify.com/track/1mSpmPfuJk21r709bP4FzC"
+      },
+      "stats": {
+        "battingAverage": ".000",
+        "hits": 0,
+        "rbis": 0,
+        "runs": 0,
+        "stolenBases": 0
+      },
+      "image": "/images/players/zach-baden.jpg"
+    }
+  ],
+  "fundraising": {
+    "goal": 35000,
+    "raised": 8750,
+    "currency": "USD"
+  },
+  "team": {
+    "name": "Citi Pirates",
+    "ageGroup": "12U",
+    "location": "San Francisco, CA",
+    "tournament": "Cooperstown All-Star Village",
+    "tournamentDate": "Summer 2026"
+  }
+}

@@ -1,0 +1,334 @@
+/* Import Google Fonts - Bold sporty headers + clean body text */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  /* Core brand colors */
+  --pirates-red: #CC0000;
+  --pirates-red-bright: #FF1A1A;
+  --pirates-red-dark: #990000;
+  --pirates-black: #0A0A0A;
+  --pirates-black-light: #1A1A1A;
+  --pirates-black-card: #141414;
+
+  /* Accent colors for video game aesthetic */
+  --pirates-gold: #FFD700;
+  --pirates-gold-dim: #B8860B;
+  --pirates-white: #FFFFFF;
+  --pirates-gray: #888888;
+  --pirates-gray-dark: #333333;
+
+  /* Glows and effects */
+  --glow-red: 0 0 20px rgba(204, 0, 0, 0.5);
+  --glow-gold: 0 0 20px rgba(255, 215, 0, 0.5);
+
+  /* Backgrounds */
+  --background: var(--pirates-black);
+  --foreground: var(--pirates-white);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-pirates-red: var(--pirates-red);
+  --color-pirates-red-bright: var(--pirates-red-bright);
+  --color-pirates-red-dark: var(--pirates-red-dark);
+  --color-pirates-black: var(--pirates-black);
+  --color-pirates-black-light: var(--pirates-black-light);
+  --color-pirates-black-card: var(--pirates-black-card);
+  --color-pirates-gold: var(--pirates-gold);
+  --color-pirates-gold-dim: var(--pirates-gold-dim);
+  --color-pirates-white: var(--pirates-white);
+  --color-pirates-gray: var(--pirates-gray);
+  --color-pirates-gray-dark: var(--pirates-gray-dark);
+
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* Base styles */
+body {
+  background: var(--pirates-black);
+  color: var(--pirates-white);
+  font-family: var(--font-body);
+}
+
+/* Display font for headers */
+.font-display {
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* Video game style text glow */
+.text-glow-red {
+  text-shadow: 0 0 10px rgba(204, 0, 0, 0.7), 0 0 20px rgba(204, 0, 0, 0.5), 0 0 30px rgba(204, 0, 0, 0.3);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.7), 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+/* Card glow on hover */
+.card-glow {
+  transition: all 0.3s ease;
+}
+
+.card-glow:hover {
+  box-shadow: 0 0 30px rgba(204, 0, 0, 0.4), 0 0 60px rgba(204, 0, 0, 0.2);
+  transform: translateY(-4px);
+}
+
+/* Red accent border */
+.border-accent {
+  border-image: linear-gradient(135deg, var(--pirates-red), var(--pirates-red-dark)) 1;
+}
+
+/* Diagonal stripe pattern (video game style) */
+.diagonal-stripes {
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 10px,
+    rgba(204, 0, 0, 0.1) 10px,
+    rgba(204, 0, 0, 0.1) 20px
+  );
+}
+
+/* Animated gradient background */
+.gradient-animate {
+  background: linear-gradient(-45deg, var(--pirates-black), var(--pirates-black-light), var(--pirates-red-dark), var(--pirates-black));
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Button styles */
+.btn-primary {
+  background: linear-gradient(135deg, var(--pirates-red), var(--pirates-red-dark));
+  color: white;
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  border: 2px solid transparent;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--pirates-red-bright), var(--pirates-red));
+  box-shadow: var(--glow-red);
+  transform: scale(1.05);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--pirates-white);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  padding: 0.75rem 2rem;
+  font-size: 1.25rem;
+  border: 2px solid var(--pirates-red);
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--pirates-red);
+  box-shadow: var(--glow-red);
+}
+
+/* Progress bar for fundraising */
+.progress-bar {
+  background: var(--pirates-black-light);
+  border: 2px solid var(--pirates-gray-dark);
+  overflow: hidden;
+  position: relative;
+}
+
+.progress-fill {
+  background: linear-gradient(90deg, var(--pirates-red-dark), var(--pirates-red), var(--pirates-red-bright));
+  background-size: 200% 100%;
+  animation: shimmer 2s ease infinite;
+  position: relative;
+}
+
+.progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: shine 2s ease infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Player card styles */
+.player-card {
+  background: var(--pirates-black-card);
+  border: 1px solid var(--pirates-gray-dark);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.player-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--pirates-red), var(--pirates-red-bright));
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.player-card:hover::before {
+  transform: scaleX(1);
+}
+
+.player-card:hover {
+  border-color: var(--pirates-red);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 20px rgba(204, 0, 0, 0.2);
+  transform: translateY(-8px);
+}
+
+/* Jersey number styling */
+.jersey-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3rem;
+  color: var(--pirates-red);
+  text-shadow: 2px 2px 0 var(--pirates-black), -1px -1px 0 var(--pirates-black);
+  line-height: 1;
+}
+
+/* Stats display */
+.stat-box {
+  background: var(--pirates-black-light);
+  border-left: 3px solid var(--pirates-red);
+  padding: 1rem;
+}
+
+.stat-value {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.5rem;
+  color: var(--pirates-white);
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--pirates-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* Section headers with accent line */
+.section-header {
+  position: relative;
+  display: inline-block;
+}
+
+.section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: var(--pirates-red);
+}
+
+/* Navigation link hover effect */
+.nav-link {
+  position: relative;
+  color: var(--pirates-white);
+  font-family: 'Bebas Neue', sans-serif;
+  letter-spacing: 0.1em;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--pirates-red);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--pirates-red);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero image overlay gradient */
+.hero-gradient {
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.3) 0%,
+    rgba(10, 10, 10, 0.6) 50%,
+    rgba(10, 10, 10, 0.95) 100%
+  );
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--pirates-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--pirates-red-dark);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--pirates-red);
+}
+
+/* Selection color */
+::selection {
+  background: var(--pirates-red);
+  color: white;
+}
