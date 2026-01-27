@@ -122,6 +122,7 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
                       src={`/images/cutouts/${player.id}.png`}
                       alt={`${player.firstName} ${player.lastName}`}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-contain object-bottom drop-shadow-[0_0_30px_rgba(204,0,0,0.5)]"
                       priority
                     />

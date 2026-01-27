@@ -74,6 +74,7 @@ export default function PlayerCard({ player }: PlayerCardProps) {
                 src={cutoutPath}
                 alt={`${player.firstName} ${player.lastName}`}
                 fill
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 300px"
                 className="object-contain object-bottom drop-shadow-[0_0_20px_rgba(204,0,0,0.5)] transition-transform duration-500 group-hover:scale-105"
               />
             </div>
