@@ -78,33 +78,45 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
           <div className="grid md:grid-cols-2 gap-12 items-start">
             {/* Player Image */}
             <div className="relative">
-              <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-[#141414] border border-[#333]">
-                {player.image ? (
+              {player.cardImage ? (
+                <div className="relative aspect-[3/4] rounded-lg overflow-hidden">
                   <Image
-                    src={player.image}
+                    src={player.cardImage}
                     alt={`${player.firstName} ${player.lastName}`}
                     fill
-                    className="object-cover object-top"
+                    className="object-cover"
                     priority
                   />
-                ) : (
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="jersey-number text-8xl opacity-30">
-                        #{player.jerseyNumber}
+                </div>
+              ) : (
+                <div className="relative aspect-[3/4] rounded-lg overflow-hidden bg-[#141414] border border-[#333]">
+                  {player.image ? (
+                    <Image
+                      src={player.image}
+                      alt={`${player.firstName} ${player.lastName}`}
+                      fill
+                      className="object-cover object-top"
+                      priority
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="jersey-number text-8xl opacity-30">
+                          #{player.jerseyNumber}
+                        </div>
+                        <p className="text-[#666] mt-4">Photo coming soon</p>
                       </div>
-                      <p className="text-[#666] mt-4">Photo coming soon</p>
+                    </div>
+                  )}
+
+                  {/* Jersey Number Overlay */}
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A0A0A] to-transparent p-6">
+                    <div className="jersey-number text-7xl md:text-8xl">
+                      #{player.jerseyNumber}
                     </div>
                   </div>
-                )}
-
-                {/* Jersey Number Overlay */}
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0A0A0A] to-transparent p-6">
-                  <div className="jersey-number text-7xl md:text-8xl">
-                    #{player.jerseyNumber}
-                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Decorative element */}
               <div className="absolute -bottom-4 -right-4 w-24 h-24 border-4 border-[#CC0000] rounded-lg -z-10" />

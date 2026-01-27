@@ -8,6 +8,7 @@ interface Player {
   jerseyNumber: number;
   position: string;
   image: string | null;
+  cardImage?: string | null;
 }
 
 interface PlayerCardProps {
@@ -15,6 +16,24 @@ interface PlayerCardProps {
 }
 
 export default function PlayerCard({ player }: PlayerCardProps) {
+  // If player has a custom card image, show that instead
+  if (player.cardImage) {
+    return (
+      <Link href={`/roster/${player.id}`}>
+        <div className="group cursor-pointer">
+          <div className="relative aspect-[3/4] overflow-hidden rounded-lg">
+            <Image
+              src={player.cardImage}
+              alt={`${player.firstName} ${player.lastName}`}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </div>
+        </div>
+      </Link>
+    );
+  }
+
   return (
     <Link href={`/roster/${player.id}`}>
       <div className="player-card rounded-lg group cursor-pointer">

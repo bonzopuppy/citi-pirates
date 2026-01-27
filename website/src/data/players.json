@@ -327,7 +327,8 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/zach-baden.jpg"
+      "image": "/images/players/zach-baden.jpg",
+      "cardImage": "/images/players/zach-baden-card.png"
     }
   ],
   "fundraising": {
