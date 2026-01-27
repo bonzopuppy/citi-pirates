@@ -188,7 +188,7 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
                   <h3 className="font-display text-lg text-[#CC0000] mb-2">
                     WALK-UP SONG
                   </h3>
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 bg-[#CC0000] rounded-full flex items-center justify-center flex-shrink-0">
                         <svg
