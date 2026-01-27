@@ -26,7 +26,7 @@ export default function Header() {
               src="/images/citi-pirates-logo.avif"
               alt="Citi Pirates"
               fill
-              className="object-contain object-left"
+              className="object-contain object-left saturate-[1.4] contrast-[1.15] hue-rotate-[-10deg] brightness-[0.9]"
             />
           </Link>
 

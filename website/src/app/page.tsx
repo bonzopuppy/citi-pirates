@@ -45,7 +45,7 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scroll indicator - positioned relative to section */}
+        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
           <svg
             className="w-8 h-8 text-[#CC0000]"

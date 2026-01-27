@@ -13,8 +13,9 @@
       "throwingHand": "Right",
       "funFact": "",
       "walkUpSong": {
-        "title": "Do It Like That",
-        "artist": "Doja Cat, Central Cee & Tyga"
+        "title": "Like That",
+        "artist": "Doja Cat, Central Cee & Tyga",
+        "spotifyUrl": "https://open.spotify.com/track/4EivmOT13NMpNSfTKn9p4s"
       },
       "stats": {
         "battingAverage": ".000",
@@ -39,7 +40,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "Not Like Us",
-        "artist": "Kendrick Lamar"
+        "artist": "Kendrick Lamar",
+        "spotifyUrl": "https://open.spotify.com/track/6AI3ezQ4o3HUoP6Dhudph3"
       },
       "stats": {
         "battingAverage": ".000",
@@ -64,7 +66,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "Soda Pop",
-        "artist": "Britney Spears"
+        "artist": "Britney Spears",
+        "spotifyUrl": "https://open.spotify.com/track/6039GmVngyHmWfOuWOhjCK"
       },
       "stats": {
         "battingAverage": ".000",
@@ -88,8 +91,9 @@
       "throwingHand": "Right",
       "funFact": "",
       "walkUpSong": {
-        "title": "Bloodline",
-        "artist": "Ariana Grande"
+        "title": "Space Unicorn",
+        "artist": "Parry Gripp",
+        "spotifyUrl": "https://open.spotify.com/track/50bWipKseUhTCP5YPiGRbA"
       },
       "stats": {
         "battingAverage": ".000",
@@ -114,7 +118,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "Break My Stride",
-        "artist": "Matthew Wilder"
+        "artist": "Matthew Wilder",
+        "spotifyUrl": "https://open.spotify.com/track/1mCsF9Tw4AkIZOjvZbZZdT"
       },
       "stats": {
         "battingAverage": ".000",
@@ -140,7 +145,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "How We Do",
-        "artist": "The Game & 50 Cent"
+        "artist": "The Game & 50 Cent",
+        "spotifyUrl": "https://open.spotify.com/track/4PmMVdIFpJTB9WQbmILf4p"
       },
       "stats": {
         "battingAverage": ".000",
@@ -165,7 +171,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "Cha Cha",
-        "artist": "D.R.A.M."
+        "artist": "D.R.A.M.",
+        "spotifyUrl": "https://open.spotify.com/track/44Xgp13T5ab99beJ0edP6b"
       },
       "stats": {
         "battingAverage": ".000",
@@ -174,7 +181,8 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/gus-mitchell.jpg"
+      "image": "/images/players/gus-mitchell.jpg",
+      "cardImage": "/images/players/gus-mitchell-card.png"
     },
     {
       "id": "jackson-evans",
@@ -190,7 +198,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "Tuyo (Narcos Theme)",
-        "artist": "Rodrigo Amarante"
+        "artist": "Rodrigo Amarante",
+        "spotifyUrl": "https://open.spotify.com/track/6g2BiiVQqY5v1S4HIrM54F"
       },
       "stats": {
         "battingAverage": ".000",
@@ -199,7 +208,8 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/jackson-evans.jpg"
+      "image": "/images/players/jackson-evans.jpg",
+      "cardImage": "/images/players/jackson-evans-card.png"
     },
     {
       "id": "joe-clemenson",
@@ -215,7 +225,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "Texas Hold 'Em",
-        "artist": "Beyonc\u00e9"
+        "artist": "Beyoncé",
+        "spotifyUrl": "https://open.spotify.com/track/0Z7nGFVCLfixWctgePsRk9"
       },
       "stats": {
         "battingAverage": ".000",
@@ -240,7 +251,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "Elmo Slide",
-        "artist": "Sesame Street"
+        "artist": "Sesame Street",
+        "spotifyUrl": "https://open.spotify.com/track/41Jjf2GqV57uzLKIdCzLA7"
       },
       "stats": {
         "battingAverage": ".000",
@@ -264,8 +276,9 @@
       "throwingHand": "Right",
       "funFact": "",
       "walkUpSong": {
-        "title": "Cruel Summer",
-        "artist": "Taylor Swift"
+        "title": "The Chicken Dance",
+        "artist": "The Chicken Dance",
+        "spotifyUrl": "https://open.spotify.com/search/the%20chicken%20dance"
       },
       "stats": {
         "battingAverage": ".000",
@@ -291,7 +304,8 @@
       "funFact": "",
       "walkUpSong": {
         "title": "Motorcycle Drive By",
-        "artist": "Third Eye Blind"
+        "artist": "Third Eye Blind",
+        "spotifyUrl": "https://open.spotify.com/track/47wtXjG0Sk6DI6cjkRBcEg"
       },
       "stats": {
         "battingAverage": ".000",
@@ -316,9 +330,9 @@
       "throwingHand": "Right",
       "funFact": "",
       "walkUpSong": {
-        "title": "Deadpool (Minions Remix)",
-        "artist": "Funny Minions Guys",
-        "spotifyUrl": "https://open.spotify.com/track/1mSpmPfuJk21r709bP4FzC"
+        "title": "Lose Control",
+        "artist": "Teddy Swims",
+        "spotifyUrl": "https://open.spotify.com/track/6usohdchdzW9oML7VC4Uhk"
       },
       "stats": {
         "battingAverage": ".000",
