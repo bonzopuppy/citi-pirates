@@ -4,6 +4,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://citi-pirates.vercel.app'),
   title: 'Citi Pirates 12U Baseball | Cooperstown 2026',
   description:
     'Support the Citi Pirates 12U Baseball team on their journey to Cooperstown All-Star Village. Help us reach our $35,000 fundraising goal!',
