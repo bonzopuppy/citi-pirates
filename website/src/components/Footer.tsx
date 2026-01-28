@@ -79,10 +79,10 @@ export default function Footer() {
               <li>San Francisco, CA</li>
               <li>
                 <a
-                  href="mailto:xlevelsports@gmail.com"
+                  href="mailto:gocitipirates@gmail.com"
                   className="hover:text-[#CC0000] transition-colors"
                 >
-                  xlevelsports@gmail.com
+                  gocitipirates@gmail.com
                 </a>
               </li>
             </ul>
