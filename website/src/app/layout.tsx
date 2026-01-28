@@ -15,6 +15,18 @@ export const metadata: Metadata = {
     'San Francisco',
     'Citi Pirates',
   ],
+  openGraph: {
+    title: 'Citi Pirates 12U Baseball | Cooperstown 2026',
+    description: 'Support the Citi Pirates 12U Baseball team on their journey to Cooperstown All-Star Village!',
+    siteName: 'Citi Pirates',
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Citi Pirates 12U Baseball | Cooperstown 2026',
+    description: 'Support the Citi Pirates 12U Baseball team on their journey to Cooperstown All-Star Village!',
+  },
 };
 
 export default function RootLayout({
