@@ -1,10 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { promises as fs } from 'fs';
-import path from 'path';
 import playersData from '@/data/players.json';
 import { sendPledgeNotification, sendSupporterConfirmation } from '@/lib/email';
-
-const PLEDGES_FILE = path.join(process.cwd(), 'src/data/ding-a-thon-pledges.json');
+import { addPledge } from '@/lib/pledges';
 
 export async function POST(request: NextRequest) {
   try {
@@ -49,18 +46,8 @@ export async function POST(request: NextRequest) {
       estimatedTotal: estimatedTotal || 0,
     };
 
-    // Read existing pledges, append, write back
-    let existing: unknown[] = [];
-    try {
-      const data = await fs.readFile(PLEDGES_FILE, 'utf-8');
-      existing = JSON.parse(data);
-    } catch {
-      // File doesn't exist or is empty — start fresh
-      existing = [];
-    }
-
-    existing.push(record);
-    await fs.writeFile(PLEDGES_FILE, JSON.stringify(existing, null, 2));
+    // Save pledge to KV store
+    await addPledge(record);
 
     // Send emails (non-blocking — don't fail the pledge if emails fail)
     const emailData = {
