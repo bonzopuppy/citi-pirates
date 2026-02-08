@@ -1,6 +1,4 @@
 import { Resend } from 'resend';
-import { readFileSync } from 'fs';
-import path from 'path';
 
 function getResend() {
   if (!process.env.RESEND_API_KEY) {
@@ -10,17 +8,10 @@ function getResend() {
 }
 
 /* ------------------------------------------------------------------ */
-/*  Logo as base64 data URI (works in all email clients)               */
+/*  Logo URL                                                           */
 /* ------------------------------------------------------------------ */
 
-let logoDataUri = '';
-try {
-  const logoPath = path.join(process.cwd(), 'public/images/citi-pirates-logo.png');
-  const logoBuffer = readFileSync(logoPath);
-  logoDataUri = `data:image/png;base64,${logoBuffer.toString('base64')}`;
-} catch {
-  // Fallback — logo won't show but email still works
-}
+const LOGO_URL = 'https://www.gocitipirates.com/images/citi-pirates-logo.png';
 
 /* ------------------------------------------------------------------ */
 /*  Stat category labels (mirrored from DingAThonForm)                 */
@@ -85,7 +76,7 @@ function buildEmailShell(subtitle: string, bodyHtml: string): string {
 
     <!-- Header -->
     <div style="background:#1a1a1a;padding:24px 32px;text-align:center;">
-      <img src="${logoDataUri || 'https://www.gocitipirates.com/images/citi-pirates-logo.png'}" alt="Citi Pirates" width="180" style="display:block;margin:0 auto 12px;" />
+      <img src="${LOGO_URL}" alt="Citi Pirates" width="180" style="display:block;margin:0 auto 12px;" />
       <p style="margin:0;color:#888;font-size:14px;letter-spacing:1px;">${subtitle}</p>
     </div>
 
