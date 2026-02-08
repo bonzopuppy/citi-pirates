@@ -36,7 +36,7 @@ export default function Home() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/fundraising" className="btn-primary text-xl px-8 py-4">
+            <Link href="/ding-a-thon" className="btn-primary text-xl px-8 py-4">
               SUPPORT OUR JOURNEY
             </Link>
             <Link href="/roster" className="btn-secondary text-xl px-8 py-4">
@@ -122,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Sponsors Section */}
+      {/* Sponsors Section - commented out for now
       <section className="py-12 bg-[#0F0F0F] border-y border-[#222]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
@@ -149,6 +149,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Featured Players Section */}
       <section className="py-20 bg-[#0A0A0A]">
@@ -260,17 +261,19 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/fundraising"
+              href="/ding-a-thon"
               className="bg-white text-[#CC0000] font-display text-xl px-8 py-4 hover:bg-[#CC0000] hover:text-white transition-colors"
             >
               DONATE TODAY
             </Link>
+            {/* BECOME A SPONSOR — commented out for now
             <Link
               href="/sponsors"
               className="border-2 border-white text-white font-display text-xl px-8 py-4 hover:bg-white hover:text-[#CC0000] transition-colors"
             >
               BECOME A SPONSOR
             </Link>
+            */}
           </div>
         </div>
       </section>

@@ -6,8 +6,6 @@ import { useState } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDonateModalOpen, setIsDonateModalOpen] = useState(false);
-
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/roster', label: 'Roster' },
@@ -41,12 +39,12 @@ export default function Header() {
                 {link.label}
               </Link>
             ))}
-            <button
-              onClick={() => setIsDonateModalOpen(true)}
-              className="btn-primary text-base px-6 py-2"
+            <Link
+              href="/ding-a-thon"
+              className="btn-primary text-base px-6 py-2 inline-block"
             >
               DONATE NOW
-            </button>
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -91,71 +89,18 @@ export default function Header() {
               {link.label}
             </Link>
           ))}
-          <button
-            onClick={() => {
-              setIsMenuOpen(false);
-              setIsDonateModalOpen(true);
-            }}
-            className="btn-primary text-center mt-4"
+          <Link
+            href="/ding-a-thon"
+            onClick={() => setIsMenuOpen(false)}
+            className="btn-primary text-center mt-4 inline-block"
           >
             DONATE NOW
-          </button>
+          </Link>
         </nav>
       </div>
 
     </header>
 
-      {/* Donate Modal - Outside header to avoid fixed positioning issues */}
-      {isDonateModalOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4"
-          onClick={() => setIsDonateModalOpen(false)}
-        >
-          {/* Backdrop */}
-          <div className="absolute inset-0 bg-black/80 backdrop-blur-sm" />
-
-          {/* Modal */}
-          <div
-            className="relative bg-[#0A0A0A] border border-[#333] rounded-lg max-w-md w-full p-8"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Close button */}
-            <button
-              onClick={() => setIsDonateModalOpen(false)}
-              className="absolute top-4 right-4 text-[#666] hover:text-white transition-colors"
-              aria-label="Close modal"
-            >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            {/* Content */}
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#CC0000]/20 flex items-center justify-center">
-                <svg className="w-8 h-8 text-[#CC0000]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-              </div>
-
-              <h3 className="font-display text-3xl text-white mb-2">
-                COMING <span className="text-glow-red">SOON</span>
-              </h3>
-
-              <p className="text-[#888] mb-6">
-                Online donations will be available shortly.
-              </p>
-
-              <button
-                onClick={() => setIsDonateModalOpen(false)}
-                className="btn-secondary w-full"
-              >
-                CLOSE
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

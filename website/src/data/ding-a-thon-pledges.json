@@ -1,0 +1,57 @@
+[
+  {
+    "id": "31a745fc-541c-40b3-9f35-c5ddac1d0178",
+    "timestamp": "2026-02-07T19:05:22.888Z",
+    "playerId": "zach-baden",
+    "supporter": {
+      "name": "David Baden",
+      "email": "davebaden@gmail.com",
+      "phone": "3107796999"
+    },
+    "pledges": {
+      "singles": 0,
+      "strikeouts": 5,
+      "runsScored": 5
+    },
+    "cap": 100,
+    "estimatedTotal": 100
+  },
+  {
+    "id": "8f370902-ea1e-47b2-841b-d17b88e274f1",
+    "timestamp": "2026-02-07T19:05:39.537Z",
+    "playerId": "zach-baden",
+    "supporter": {
+      "name": "Test Supporter",
+      "email": "test@example.com",
+      "phone": "555-123-4567"
+    },
+    "pledges": {
+      "singles": 1,
+      "strikeouts": 0.5
+    },
+    "cap": null,
+    "estimatedTotal": 33
+  },
+  {
+    "id": "86376519-e551-4365-9db1-4ef854e5cb02",
+    "timestamp": "2026-02-08T00:16:47.548Z",
+    "playerId": "zach-baden",
+    "supporter": {
+      "name": "David",
+      "email": "davebaden@gmail.com",
+      "phone": "3107796999"
+    },
+    "pledges": {
+      "doubles": 5,
+      "rbis": 5,
+      "runsScored": 0.5,
+      "singles": 4.5,
+      "triples": 3,
+      "homeRuns": 0,
+      "stolenBases": 22,
+      "defensiveOuts": 3.75
+    },
+    "cap": 400,
+    "estimatedTotal": 305.25
+  }
+]

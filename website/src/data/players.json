@@ -24,7 +24,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/aaron-cheng.jpg"
+      "image": "/images/players/aaron-cheng.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "anderson-berning",
@@ -50,7 +55,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/anderson-berning.jpg"
+      "image": "/images/players/anderson-berning.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "christopher-justen",
@@ -76,7 +86,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/christopher-justen.jpg"
+      "image": "/images/players/christopher-justen.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "damon-jung",
@@ -102,7 +117,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/damon-jung.jpg"
+      "image": "/images/players/damon-jung.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "garo-balabanian",
@@ -128,7 +148,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/garo-balabanian.jpg"
+      "image": "/images/players/garo-balabanian.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "gavin-wu",
@@ -155,34 +180,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/gavin-wu.jpg"
-    },
-    {
-      "id": "gus-mitchell",
-      "firstName": "Gus",
-      "lastName": "Mitchell",
-      "jerseyNumber": 35,
-      "position": "Second Base",
-      "positions": [
-        "Second Base"
-      ],
-      "battingHand": "Right",
-      "throwingHand": "Right",
-      "funFact": "",
-      "walkUpSong": {
-        "title": "Cha Cha",
-        "artist": "D.R.A.M.",
-        "spotifyUrl": "https://open.spotify.com/track/44Xgp13T5ab99beJ0edP6b"
-      },
-      "stats": {
-        "battingAverage": ".000",
-        "hits": 0,
-        "rbis": 0,
-        "runs": 0,
-        "stolenBases": 0
-      },
-      "image": "/images/players/gus-mitchell.jpg",
-      "cardImage": "/images/players/gus-mitchell-card.png"
+      "image": "/images/players/gavin-wu.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "jackson-evans",
@@ -209,7 +212,12 @@
         "stolenBases": 0
       },
       "image": "/images/players/jackson-evans.jpg",
-      "cardImage": "/images/players/jackson-evans-card.png"
+      "cardImage": "/images/players/jackson-evans-card.png",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "joe-clemenson",
@@ -235,7 +243,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/joe-clemenson.jpg"
+      "image": "/images/players/joe-clemenson.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "samuel-zottarelli",
@@ -261,7 +274,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/samuel-zottarelli.jpg"
+      "image": "/images/players/samuel-zottarelli.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "sawyer-lurie",
@@ -287,7 +305,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/sawyer-lurie.jpg"
+      "image": "/images/players/sawyer-lurie.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "xander-macdonald",
@@ -314,7 +337,12 @@
         "runs": 0,
         "stolenBases": 0
       },
-      "image": "/images/players/xander-macdonald.jpg"
+      "image": "/images/players/xander-macdonald.jpg",
+      "seasonStats2025": {
+        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
+        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+      }
     },
     {
       "id": "zach-baden",
@@ -342,7 +370,12 @@
         "stolenBases": 0
       },
       "image": "/images/players/zach-baden.jpg",
-      "cardImage": "/images/players/zach-baden-card.png"
+      "cardImage": "/images/players/zach-baden-card.png",
+      "seasonStats2025": {
+        "singles": 11, "doubles": 0, "triples": 1, "homeRuns": 0,
+        "runsScored": 5, "rbis": 8, "stolenBases": 7, "strikeouts": 44,
+        "defensiveOuts": 15, "infieldAssists": 21, "outfieldAssists": 0, "doublePlays": 0
+      }
     }
   ],
   "fundraising": {

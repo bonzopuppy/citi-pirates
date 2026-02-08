@@ -70,7 +70,7 @@ export default function FundraisingPage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
+      {/* Hero Section — combined Cooperstown + Ding-A-Thon pitch */}
       <section className="relative py-20 md:py-28 overflow-hidden">
         <div className="absolute inset-0 gradient-animate" />
         <div className="absolute inset-0 diagonal-stripes" />
@@ -80,61 +80,21 @@ export default function FundraisingPage() {
           <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white mb-6">
             HELP US GET TO <span className="text-glow-red">COOPERSTOWN</span>
           </h1>
-          <p className="text-xl md:text-2xl text-[#888] max-w-2xl mx-auto">
-            The {team.name} {team.ageGroup} are heading to
-            <br />
-            <span className="text-white">{team.tournament}</span>
-            <br />
-            in <span className="text-[#CC0000] font-semibold">{team.tournamentDate}</span>
+          <p className="text-xl md:text-2xl text-[#888] max-w-2xl mx-auto mb-4">
+            The {team.name} {team.ageGroup} are heading to{' '}
+            <span className="text-white">{team.tournament}</span> in{' '}
+            <span className="text-[#CC0000] font-semibold">{team.tournamentDate}</span>
           </p>
-        </div>
-      </section>
-
-      {/* Fundraising Progress Section */}
-      <section className="py-16 bg-[#0F0F0F]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#141414] p-8 md:p-12 rounded-lg border border-[#333]">
-            <h2 className="font-display text-2xl md:text-3xl text-white text-center mb-8">
-              FUNDRAISING PROGRESS
-            </h2>
-            <FundraisingProgress
-              raised={fundraising.raised}
-              goal={fundraising.goal}
-              size="lg"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* The Journey Section */}
-      <section className="py-20 bg-[#0A0A0A]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div>
-              <span className="text-[#CC0000] font-display text-lg tracking-wider block mb-3">
-                THE JOURNEY
-              </span>
-              <h2 className="font-display text-4xl md:text-5xl text-white mb-6">
-                A <span className="text-glow-red">ONCE-IN-A-LIFETIME</span> EXPERIENCE
-              </h2>
-            </div>
-            <div className="space-y-6">
-              <p className="text-[#888] text-lg leading-relaxed">
-                Cooperstown All-Star Village isn&apos;t just a tournament - it&apos;s where
-                baseball dreams come alive. For over 25 years, it&apos;s been the ultimate
-                destination for youth baseball players from across the nation.
-              </p>
-              <p className="text-[#888] text-lg leading-relaxed">
-                Our 13 players will compete against elite teams, stay in authentic team
-                barracks, trade pins with players from across the country, and play under
-                the lights on fields that mirror the magic of professional stadiums.
-              </p>
-              <p className="text-[#888] text-lg leading-relaxed">
-                This is the trip these kids will remember for the rest of their lives.
-                <span className="text-white font-semibold"> Help us make it happen.</span>
-              </p>
-            </div>
-          </div>
+          <p className="text-lg md:text-xl text-[#888] max-w-xl mx-auto mb-10">
+            Pledge per stat &mdash; every hit, run, and strikeout earns money for the team.
+            Pick your player and set your pledges.
+          </p>
+          <Link
+            href="/ding-a-thon"
+            className="btn-primary inline-block text-center text-xl px-12 py-4"
+          >
+            MAKE YOUR PLEDGE
+          </Link>
         </div>
       </section>
 
@@ -165,23 +125,49 @@ export default function FundraisingPage() {
         </div>
       </section>
 
-      {/* Donate Section */}
-      <section className="py-20 bg-[#0A0A0A]">
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-[#1A1A1A] to-[#141414] p-8 md:p-12 rounded-lg border-2 border-[#CC0000] relative overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#CC0000] to-[#990000]" />
+      {/* Fundraising Progress Section */}
+      <section className="py-16 bg-[#0A0A0A]">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#141414] p-8 md:p-12 rounded-lg border border-[#333]">
+            <h2 className="font-display text-2xl md:text-3xl text-white text-center mb-8">
+              FUNDRAISING PROGRESS
+            </h2>
+            <FundraisingProgress
+              raised={fundraising.raised}
+              goal={fundraising.goal}
+              size="lg"
+            />
+          </div>
+        </div>
+      </section>
 
-            <div className="text-center">
-              <h2 className="font-display text-3xl md:text-4xl text-white mb-4">
-                DONATE
+      {/* The Journey Section */}
+      <section className="py-20 bg-[#0F0F0F]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <span className="text-[#CC0000] font-display text-lg tracking-wider block mb-3">
+                THE JOURNEY
+              </span>
+              <h2 className="font-display text-4xl md:text-5xl text-white mb-6">
+                A <span className="text-glow-red">ONCE-IN-A-LIFETIME</span> EXPERIENCE
               </h2>
-              <div className="w-16 h-1 bg-[#CC0000] mx-auto mb-8" />
-
-              <div className="bg-[#0A0A0A] p-6 rounded-lg border border-[#333]">
-                <p className="text-[#888] text-lg">
-                  Donation options coming soon.
-                </p>
-              </div>
+            </div>
+            <div className="space-y-6">
+              <p className="text-[#888] text-lg leading-relaxed">
+                Cooperstown All-Star Village isn&apos;t just a tournament - it&apos;s where
+                baseball dreams come alive. For over 25 years, it&apos;s been the ultimate
+                destination for youth baseball players from across the nation.
+              </p>
+              <p className="text-[#888] text-lg leading-relaxed">
+                Our 13 players will compete against elite teams, stay in authentic team
+                barracks, trade pins with players from across the country, and play under
+                the lights on fields that mirror the magic of professional stadiums.
+              </p>
+              <p className="text-[#888] text-lg leading-relaxed">
+                This is the trip these kids will remember for the rest of their lives.
+                <span className="text-white font-semibold"> Help us make it happen.</span>
+              </p>
             </div>
           </div>
         </div>
@@ -205,6 +191,19 @@ export default function FundraisingPage() {
           </Link>
         </div>
       </section>
+
+      {/* Sticky mobile CTA — always visible on mobile */}
+      <div className="fixed bottom-0 left-0 right-0 z-50 md:hidden bg-[#0A0A0A]/95 backdrop-blur-sm border-t border-[#CC0000]/30 px-4 py-3">
+        <Link
+          href="/ding-a-thon"
+          className="btn-primary block text-center text-lg py-3"
+        >
+          MAKE YOUR PLEDGE
+        </Link>
+      </div>
+
+      {/* Spacer for sticky bar on mobile */}
+      <div className="h-16 md:hidden" />
     </div>
   );
 }
