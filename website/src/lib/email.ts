@@ -33,6 +33,25 @@ const STAT_LABELS: Record<string, string> = {
 };
 
 /* ------------------------------------------------------------------ */
+/*  HTML escaping (prevents XSS in email clients)                      */
+/* ------------------------------------------------------------------ */
+
+function esc(text: string | number): string {
+  const s = String(text);
+  return s
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+/** Strip newlines from email subject/headers to prevent header injection */
+function sanitizeHeader(text: string): string {
+  return text.replace(/[\r\n]/g, '');
+}
+
+/* ------------------------------------------------------------------ */
 /*  Types                                                              */
 /* ------------------------------------------------------------------ */
 
@@ -59,7 +78,7 @@ function buildPledgeRows(pledges: Record<string, number>): string {
     .map(
       ([key, amt]) =>
         `<tr>
-          <td style="padding:8px 12px;border-bottom:1px solid #eee;color:#333;">${STAT_LABELS[key] || key}</td>
+          <td style="padding:8px 12px;border-bottom:1px solid #eee;color:#333;">${STAT_LABELS[key] || esc(key)}</td>
           <td style="padding:8px 12px;border-bottom:1px solid #eee;text-align:right;color:#333;font-weight:600;">$${amt.toFixed(2)}</td>
         </tr>`
     )
@@ -134,8 +153,8 @@ function buildEstimatedTotal(estimatedTotal: number, cap: number | null): string
 function buildParentEmailHtml(data: PledgeEmailData): string {
   const body = `
       <p style="font-size:16px;color:#333;margin:0 0 16px;">
-        Great news! <strong>${data.supporterName}</strong> just made a Ding-A-Thon pledge for
-        <strong>${data.playerFirstName} ${data.playerLastName} (#${data.playerJerseyNumber})</strong>.
+        Great news! <strong>${esc(data.supporterName)}</strong> just made a Ding-A-Thon pledge for
+        <strong>${esc(data.playerFirstName)} ${esc(data.playerLastName)} (#${esc(data.playerJerseyNumber)})</strong>.
       </p>
 
       ${buildPledgeTable(data.pledges)}
@@ -145,14 +164,14 @@ function buildParentEmailHtml(data: PledgeEmailData): string {
       <div style="background:#f9f9f9;padding:16px 20px;margin:20px 0;">
         <p style="margin:0 0 8px;font-size:12px;text-transform:uppercase;color:#888;letter-spacing:1px;">Supporter Contact</p>
         <p style="margin:0;color:#333;font-size:14px;">
-          <strong>${data.supporterName}</strong><br />
-          ${data.supporterEmail}<br />
-          ${data.supporterPhone}
+          <strong>${esc(data.supporterName)}</strong><br />
+          ${esc(data.supporterEmail)}<br />
+          ${esc(data.supporterPhone)}
         </p>
       </div>
 
       <p style="font-size:14px;color:#888;margin:20px 0 0;">
-        The final donation amount will be based on ${data.playerFirstName}'s actual game stats during the 2026 spring season.
+        The final donation amount will be based on ${esc(data.playerFirstName)}'s actual game stats during the 2026 spring season.
       </p>`;
 
   return buildEmailShell('DING-A-THON PLEDGE', body);
@@ -165,11 +184,11 @@ function buildParentEmailHtml(data: PledgeEmailData): string {
 function buildSupporterEmailHtml(data: PledgeEmailData): string {
   const body = `
       <p style="font-size:16px;color:#333;margin:0 0 4px;">
-        Thank you for your pledge, <strong>${data.supporterName}</strong>!
+        Thank you for your pledge, <strong>${esc(data.supporterName)}</strong>!
       </p>
       <p style="font-size:15px;color:#555;margin:0 0 16px;">
         Your Ding-A-Thon pledge for
-        <strong style="color:#333;">${data.playerFirstName} ${data.playerLastName} (#${data.playerJerseyNumber})</strong>
+        <strong style="color:#333;">${esc(data.playerFirstName)} ${esc(data.playerLastName)} (#${esc(data.playerJerseyNumber)})</strong>
         has been received. Here's a summary:
       </p>
 
@@ -177,7 +196,7 @@ function buildSupporterEmailHtml(data: PledgeEmailData): string {
       ${buildEstimatedTotal(data.estimatedTotal, data.cap)}
 
       <p style="font-size:14px;color:#888;margin:20px 0 0;">
-        The final donation amount will be based on ${data.playerFirstName}'s actual game stats during the 2026 spring season.
+        The final donation amount will be based on ${esc(data.playerFirstName)}'s actual game stats during the 2026 spring season.
         We'll be in touch when the season wraps up. Go Pirates!
       </p>`;
 
@@ -194,7 +213,7 @@ export async function sendPledgeNotification(data: PledgeEmailData) {
   const { error } = await getResend().emails.send({
     from: 'Citi Pirates Ding-A-Thon <noreply@gocitipirates.com>',
     to: data.parentEmail,
-    subject: `New Ding-A-Thon Pledge for ${data.playerFirstName} ${data.playerLastName}!`,
+    subject: sanitizeHeader(`New Ding-A-Thon Pledge for ${data.playerFirstName} ${data.playerLastName}!`),
     html,
   });
 
@@ -214,7 +233,7 @@ export async function sendSupporterConfirmation(data: PledgeEmailData) {
   const { error } = await getResend().emails.send({
     from: 'Citi Pirates Ding-A-Thon <noreply@gocitipirates.com>',
     to: data.supporterEmail,
-    subject: `Thanks for Your Ding-A-Thon Pledge for ${data.playerFirstName}!`,
+    subject: sanitizeHeader(`Thanks for Your Ding-A-Thon Pledge for ${data.playerFirstName}!`),
     html,
   });
 

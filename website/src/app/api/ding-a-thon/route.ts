@@ -1,7 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import playersData from '@/data/players.json';
+import { getParentEmail } from '@/data/parent-emails';
 import { sendPledgeNotification, sendSupporterConfirmation } from '@/lib/email';
 import { addPledge } from '@/lib/pledges';
+
+// Allowed stat categories for pledges
+const VALID_PLEDGE_KEYS = new Set([
+  'singles', 'doubles', 'triples', 'homeRuns', 'runsScored', 'rbis',
+  'stolenBases', 'strikeouts', 'defensiveOuts', 'infieldAssists',
+  'outfieldAssists', 'doublePlays',
+]);
+
+// Whitelist of valid player IDs (built once at module load)
+const VALID_PLAYER_IDS = new Set(playersData.players.map((p) => p.id));
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MAX_PLEDGE_PER_STAT = 1000; // $1,000 max per stat category
+const MAX_CAP = 100000; // $100,000 max cap
 
 export async function POST(request: NextRequest) {
   try {
@@ -9,27 +24,57 @@ export async function POST(request: NextRequest) {
 
     const { playerId, supporter, pledges, cap, estimatedTotal } = body;
 
-    // Validate required fields
-    if (!playerId || typeof playerId !== 'string') {
-      return NextResponse.json({ error: 'Player selection is required' }, { status: 400 });
+    // Validate playerId against whitelist
+    if (!playerId || typeof playerId !== 'string' || !VALID_PLAYER_IDS.has(playerId)) {
+      return NextResponse.json({ error: 'Invalid player selection' }, { status: 400 });
     }
 
-    if (!supporter?.name || !supporter?.email || !supporter?.phone) {
+    // Validate supporter fields exist and are strings
+    if (
+      !supporter?.name || typeof supporter.name !== 'string' ||
+      !supporter?.email || typeof supporter.email !== 'string' ||
+      !supporter?.phone || typeof supporter.phone !== 'string'
+    ) {
       return NextResponse.json({ error: 'Name, email, and phone are required' }, { status: 400 });
     }
 
-    // Validate at least one pledge > 0
-    const pledgeValues = Object.values(pledges || {}) as number[];
-    const hasAtLeastOnePledge = pledgeValues.some((v) => v > 0);
-    if (!hasAtLeastOnePledge) {
+    // Validate supporter field lengths
+    if (supporter.name.trim().length > 200 || supporter.email.trim().length > 254 || supporter.phone.trim().length > 20) {
+      return NextResponse.json({ error: 'Input too long' }, { status: 400 });
+    }
+
+    // Validate email format
+    if (!EMAIL_REGEX.test(supporter.email.trim())) {
+      return NextResponse.json({ error: 'Invalid email format' }, { status: 400 });
+    }
+
+    // Validate pledges object
+    if (!pledges || typeof pledges !== 'object') {
+      return NextResponse.json({ error: 'Pledges are required' }, { status: 400 });
+    }
+
+    // Validate each pledge: must be a known category with a valid amount
+    const sanitizedPledges: Record<string, number> = {};
+    for (const [key, value] of Object.entries(pledges)) {
+      if (!VALID_PLEDGE_KEYS.has(key)) continue; // Skip unknown keys
+      const num = Number(value);
+      if (typeof num !== 'number' || isNaN(num) || num < 0 || num > MAX_PLEDGE_PER_STAT) {
+        return NextResponse.json({ error: `Invalid pledge amount for ${key}` }, { status: 400 });
+      }
+      if (num > 0) sanitizedPledges[key] = Math.round(num * 100) / 100; // Round to cents
+    }
+
+    if (Object.keys(sanitizedPledges).length === 0) {
       return NextResponse.json({ error: 'At least one pledge amount is required' }, { status: 400 });
     }
 
-    // Look up the player
-    const player = playersData.players.find((p) => p.id === playerId);
-    if (!player) {
-      return NextResponse.json({ error: 'Player not found' }, { status: 400 });
-    }
+    // Validate cap
+    const sanitizedCap = (cap && typeof cap === 'number' && cap > 0 && cap <= MAX_CAP)
+      ? Math.round(cap * 100) / 100
+      : null;
+
+    // Look up the player (guaranteed to exist due to whitelist check above)
+    const player = playersData.players.find((p) => p.id === playerId)!;
 
     // Build the pledge record
     const record = {
@@ -37,21 +82,24 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString(),
       playerId,
       supporter: {
-        name: supporter.name.trim(),
-        email: supporter.email.trim(),
-        phone: supporter.phone.trim(),
+        name: supporter.name.trim().slice(0, 200),
+        email: supporter.email.trim().slice(0, 254),
+        phone: supporter.phone.trim().slice(0, 20),
       },
-      pledges,
-      cap: cap && cap > 0 ? cap : null,
-      estimatedTotal: estimatedTotal || 0,
+      pledges: sanitizedPledges,
+      cap: sanitizedCap,
+      estimatedTotal: typeof estimatedTotal === 'number' ? Math.round(estimatedTotal * 100) / 100 : 0,
     };
 
     // Save pledge to KV store
     await addPledge(record);
 
+    // Look up parent email from server-only store (not in players.json)
+    const parentEmail = getParentEmail(playerId);
+
     // Send emails — must await on serverless (Vercel kills the function after response)
     const emailData = {
-      parentEmail: player.parentEmail,
+      parentEmail: parentEmail || '',
       playerFirstName: player.firstName,
       playerLastName: player.lastName,
       playerJerseyNumber: player.jerseyNumber,
@@ -66,7 +114,7 @@ export async function POST(request: NextRequest) {
     // Send both emails in parallel, but await them before responding
     const emailPromises: Promise<void>[] = [];
 
-    if (player.parentEmail) {
+    if (parentEmail) {
       emailPromises.push(
         sendPledgeNotification(emailData).catch((err) => {
           console.error('Failed to send parent notification email:', err);

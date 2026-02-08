@@ -1,10 +1,20 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getPledges, savePledges, type Pledge } from '@/lib/pledges';
+import { timingSafeEqual } from 'crypto';
+import { getPledges, deletePledge } from '@/lib/pledges';
+import { getAllParentEmails } from '@/data/parent-emails';
 
 function verifyPassword(request: NextRequest): boolean {
-  const authHeader = request.headers.get('x-admin-password');
-  const adminPassword = process.env.ADMIN_PASSWORD;
-  return !!adminPassword && authHeader === adminPassword;
+  const authHeader = request.headers.get('x-admin-password') || '';
+  const adminPassword = process.env.ADMIN_PASSWORD || '';
+  if (!adminPassword || !authHeader) return false;
+
+  try {
+    const a = Buffer.from(authHeader);
+    const b = Buffer.from(adminPassword);
+    return a.length === b.length && timingSafeEqual(a, b);
+  } catch {
+    return false;
+  }
 }
 
 export async function GET(request: NextRequest) {
@@ -13,7 +23,11 @@ export async function GET(request: NextRequest) {
   }
 
   const pledges = await getPledges();
-  return NextResponse.json({ pledges });
+
+  // Parent emails from server-only store (never in client bundle)
+  const parentEmails = getAllParentEmails();
+
+  return NextResponse.json({ pledges, parentEmails });
 }
 
 export async function DELETE(request: NextRequest) {
@@ -23,19 +37,22 @@ export async function DELETE(request: NextRequest) {
 
   try {
     const { id } = await request.json();
-    if (!id) {
+    if (!id || typeof id !== 'string') {
       return NextResponse.json({ error: 'Pledge ID required' }, { status: 400 });
     }
 
-    const pledges = await getPledges();
-    const filtered = pledges.filter((p: Pledge) => p.id !== id);
+    // Validate UUID format
+    const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
+    if (!uuidRegex.test(id)) {
+      return NextResponse.json({ error: 'Invalid pledge ID' }, { status: 400 });
+    }
 
-    if (filtered.length === pledges.length) {
+    const deleted = await deletePledge(id);
+    if (!deleted) {
       return NextResponse.json({ error: 'Pledge not found' }, { status: 404 });
     }
 
-    await savePledges(filtered);
-    return NextResponse.json({ success: true, remaining: filtered.length });
+    return NextResponse.json({ success: true });
   } catch {
     return NextResponse.json({ error: 'Invalid request' }, { status: 400 });
   }
