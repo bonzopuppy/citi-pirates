@@ -49,7 +49,7 @@ export async function POST(request: NextRequest) {
     // Save pledge to KV store
     await addPledge(record);
 
-    // Send emails (non-blocking — don't fail the pledge if emails fail)
+    // Send emails — must await on serverless (Vercel kills the function after response)
     const emailData = {
       parentEmail: player.parentEmail,
       playerFirstName: player.firstName,
@@ -63,17 +63,24 @@ export async function POST(request: NextRequest) {
       estimatedTotal: record.estimatedTotal,
     };
 
-    // Email to parent
+    // Send both emails in parallel, but await them before responding
+    const emailPromises: Promise<void>[] = [];
+
     if (player.parentEmail) {
-      sendPledgeNotification(emailData).catch((err) => {
-        console.error('Failed to send parent notification email:', err);
-      });
+      emailPromises.push(
+        sendPledgeNotification(emailData).catch((err) => {
+          console.error('Failed to send parent notification email:', err);
+        })
+      );
     }
 
-    // Confirmation email to supporter
-    sendSupporterConfirmation(emailData).catch((err) => {
-      console.error('Failed to send supporter confirmation email:', err);
-    });
+    emailPromises.push(
+      sendSupporterConfirmation(emailData).catch((err) => {
+        console.error('Failed to send supporter confirmation email:', err);
+      })
+    );
+
+    await Promise.all(emailPromises);
 
     return NextResponse.json({ success: true, id: record.id });
   } catch (error) {
