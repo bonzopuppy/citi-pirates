@@ -48,6 +48,21 @@ const PLAYER_NAMES: Record<string, string> = {
   'zach-baden': 'Zach Baden',
 };
 
+const PARENT_EMAILS: Record<string, string> = {
+  'aaron-cheng': 'ciaoirene@hotmail.com',
+  'anderson-berning': 'amywlin@gmail.com',
+  'christopher-justen': 'diane.chui@gmail.com',
+  'damon-jung': 'rahsalee@gmail.com',
+  'garo-balabanian': 'kriscowan@gmail.com',
+  'gavin-wu': 'deannayick@gmail.com',
+  'jackson-evans': 'gwenkalyanapu@hotmail.com',
+  'joe-clemenson': 'lolitaclemenson@gmail.com',
+  'samuel-zottarelli': 'meganzottarelli@gmail.com',
+  'sawyer-lurie': 'beccaprowda@gmail.com',
+  'xander-macdonald': 'aml169@yahoo.com',
+  'zach-baden': 'afox@olive-events.com',
+};
+
 const STAT_LABELS: Record<string, string> = {
   singles: 'Singles',
   doubles: 'Doubles',
@@ -414,6 +429,11 @@ export default function AdminPage() {
                             {formatDate(p.timestamp)}
                             {p.cap && <> &middot; Cap: ${p.cap.toFixed(2)}</>}
                           </p>
+                          {PARENT_EMAILS[p.playerId] && (
+                            <p className="text-[#555] text-xs mt-1">
+                              Confirmation sent to: {PARENT_EMAILS[p.playerId]}
+                            </p>
+                          )}
                         </div>
                         <div className="flex items-center gap-3 shrink-0">
                           <p className="font-display text-xl text-white">${p.estimatedTotal.toFixed(2)}</p>
