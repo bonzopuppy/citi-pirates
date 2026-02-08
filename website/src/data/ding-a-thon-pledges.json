@@ -33,25 +33,33 @@
     "estimatedTotal": 33
   },
   {
-    "id": "86376519-e551-4365-9db1-4ef854e5cb02",
-    "timestamp": "2026-02-08T00:16:47.548Z",
+    "id": "3bcf2aed-7b97-450b-ad3f-ceb6e90ffe35",
+    "timestamp": "2026-02-08T02:16:30.807Z",
     "playerId": "zach-baden",
     "supporter": {
-      "name": "David",
+      "name": "David Baden",
+      "email": "zetastudios.temp@gmail.com",
+      "phone": "3107796999"
+    },
+    "pledges": {
+      "defensiveOuts": 5
+    },
+    "cap": 100,
+    "estimatedTotal": 75
+  },
+  {
+    "id": "86face4c-7c7d-4884-9694-742fc6cc100f",
+    "timestamp": "2026-02-08T02:24:39.887Z",
+    "playerId": "zach-baden",
+    "supporter": {
+      "name": "David Baden",
       "email": "davebaden@gmail.com",
       "phone": "3107796999"
     },
     "pledges": {
-      "doubles": 5,
-      "rbis": 5,
-      "runsScored": 0.5,
-      "singles": 4.5,
-      "triples": 3,
-      "homeRuns": 0,
-      "stolenBases": 22,
-      "defensiveOuts": 3.75
+      "singles": 5
     },
-    "cap": 400,
-    "estimatedTotal": 305.25
+    "cap": 2000,
+    "estimatedTotal": 55
   }
 ]

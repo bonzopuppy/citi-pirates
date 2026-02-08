@@ -2,7 +2,12 @@ import { Resend } from 'resend';
 import { readFileSync } from 'fs';
 import path from 'path';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+  if (!process.env.RESEND_API_KEY) {
+    throw new Error('RESEND_API_KEY environment variable is not set');
+  }
+  return new Resend(process.env.RESEND_API_KEY);
+}
 
 /* ------------------------------------------------------------------ */
 /*  Logo as base64 data URI (works in all email clients)               */
@@ -195,7 +200,7 @@ function buildSupporterEmailHtml(data: PledgeEmailData): string {
 export async function sendPledgeNotification(data: PledgeEmailData) {
   const html = buildParentEmailHtml(data);
 
-  const { error } = await resend.emails.send({
+  const { error } = await getResend().emails.send({
     from: 'Citi Pirates Ding-A-Thon <noreply@gocitipirates.com>',
     to: data.parentEmail,
     subject: `New Ding-A-Thon Pledge for ${data.playerFirstName} ${data.playerLastName}!`,
@@ -215,7 +220,7 @@ export async function sendPledgeNotification(data: PledgeEmailData) {
 export async function sendSupporterConfirmation(data: PledgeEmailData) {
   const html = buildSupporterEmailHtml(data);
 
-  const { error } = await resend.emails.send({
+  const { error } = await getResend().emails.send({
     from: 'Citi Pirates Ding-A-Thon <noreply@gocitipirates.com>',
     to: data.supporterEmail,
     subject: `Thanks for Your Ding-A-Thon Pledge for ${data.playerFirstName}!`,
