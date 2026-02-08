@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
+import playersData from '@/data/players.json';
+import { sendPledgeNotification, sendSupporterConfirmation } from '@/lib/email';
 
 const PLEDGES_FILE = path.join(process.cwd(), 'src/data/ding-a-thon-pledges.json');
 
@@ -24,6 +26,12 @@ export async function POST(request: NextRequest) {
     const hasAtLeastOnePledge = pledgeValues.some((v) => v > 0);
     if (!hasAtLeastOnePledge) {
       return NextResponse.json({ error: 'At least one pledge amount is required' }, { status: 400 });
+    }
+
+    // Look up the player
+    const player = playersData.players.find((p) => p.id === playerId);
+    if (!player) {
+      return NextResponse.json({ error: 'Player not found' }, { status: 400 });
     }
 
     // Build the pledge record
@@ -53,6 +61,32 @@ export async function POST(request: NextRequest) {
 
     existing.push(record);
     await fs.writeFile(PLEDGES_FILE, JSON.stringify(existing, null, 2));
+
+    // Send emails (non-blocking — don't fail the pledge if emails fail)
+    const emailData = {
+      parentEmail: player.parentEmail,
+      playerFirstName: player.firstName,
+      playerLastName: player.lastName,
+      playerJerseyNumber: player.jerseyNumber,
+      supporterName: record.supporter.name,
+      supporterEmail: record.supporter.email,
+      supporterPhone: record.supporter.phone,
+      pledges: record.pledges,
+      cap: record.cap,
+      estimatedTotal: record.estimatedTotal,
+    };
+
+    // Email to parent
+    if (player.parentEmail) {
+      sendPledgeNotification(emailData).catch((err) => {
+        console.error('Failed to send parent notification email:', err);
+      });
+    }
+
+    // Confirmation email to supporter
+    sendSupporterConfirmation(emailData).catch((err) => {
+      console.error('Failed to send supporter confirmation email:', err);
+    });
 
     return NextResponse.json({ success: true, id: record.id });
   } catch (error) {

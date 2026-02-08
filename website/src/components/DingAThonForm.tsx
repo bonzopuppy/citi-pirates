@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -76,8 +76,14 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
+  // Scroll to top on step change
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [step]);
+
   const selectedPlayer = players.find((p) => p.id === selectedPlayerId);
   const playerStats = selectedPlayer?.seasonStats2025 || DEFAULT_STATS;
+  const hasAnyStats = Object.values(playerStats).some((v) => v > 0);
 
   // Live estimated total
   const estimatedTotal = useMemo(() => {
@@ -356,6 +362,7 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
             </h2>
             <p className="text-[#888]">
               How much per play for <span className="text-white font-semibold">{selectedPlayer?.firstName} {selectedPlayer?.lastName}</span>?
+              <br />
               Leave blank for categories you don&apos;t want to pledge.
             </p>
           </div>
@@ -382,7 +389,7 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
                     <p className="font-display text-lg text-white leading-tight">{cat.label}</p>
                     <p className="text-xs text-[#666]">{cat.description}</p>
                     <p className="text-xs text-[#555] mt-1">
-                      2025 season: <span className="text-[#888]">{lastYearStat}</span>
+                      2025 season: <span className="text-[#888]">{lastYearStat > 0 ? lastYearStat : '—'}</span>
                     </p>
                   </div>
 
@@ -417,12 +424,27 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
           <div className="sticky bottom-0 mt-6 bg-[#0A0A0A]/95 backdrop-blur-sm border-t border-[#333] -mx-4 px-4 py-4 sm:static sm:bg-transparent sm:backdrop-blur-none sm:border-t-0 sm:mx-0 sm:px-0 sm:py-0 sm:mt-8">
             <div className="bg-gradient-to-br from-[#1A1A1A] to-[#141414] border-2 border-[#CC0000] rounded-lg p-6 text-center">
               <p className="text-[#888] font-display text-sm tracking-wider mb-2">ESTIMATED SEASON TOTAL</p>
-              <p className="font-display text-5xl text-white text-glow-red">
-                ${estimatedTotal.toFixed(2)}
-              </p>
-              <p className="text-xs text-[#555] mt-2">
-                Based on {selectedPlayer?.firstName}&apos;s 2025 stats
-              </p>
+              {hasAnyStats ? (
+                <>
+                  <p className="font-display text-5xl text-white text-glow-red">
+                    ${estimatedTotal.toFixed(2)}
+                  </p>
+                  <p className="text-xs text-[#555] mt-2">
+                    Based on {selectedPlayer?.firstName}&apos;s 2025 stats
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="font-display text-3xl text-white text-glow-red mt-1">
+                    TBD
+                  </p>
+                  <p className="text-xs text-[#888] mt-2">
+                    {selectedPlayer?.firstName}&apos;s stats will update as the season progresses.
+                    <br />
+                    Your total will be calculated from actual game results.
+                  </p>
+                </>
+              )}
             </div>
 
             <div className="flex gap-4 mt-6">
@@ -577,22 +599,20 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
           </div>
 
           {/* Player */}
-          <div className="bg-[#141414] border border-[#333] rounded-lg p-5 flex items-center gap-4 mb-4">
-            <div className="relative w-16 h-16 rounded-lg overflow-hidden shrink-0">
+          <div className="bg-[#141414] border border-[#333] rounded-lg p-6 mb-4 text-center">
+            <div className="relative w-24 h-24 rounded-full overflow-hidden mx-auto mb-3 border-2 border-[#CC0000]">
               <Image
-                src={selectedPlayer?.image || ''}
+                src={selectedPlayer?.image?.replace('.jpg', '-mlb.jpg') || ''}
                 alt={`${selectedPlayer?.firstName} ${selectedPlayer?.lastName}`}
                 fill
                 className="object-cover"
-                sizes="64px"
+                sizes="96px"
               />
             </div>
-            <div>
-              <p className="font-display text-xl text-white">
-                {selectedPlayer?.firstName} {selectedPlayer?.lastName}
-              </p>
-              <p className="text-sm text-[#888]">#{selectedPlayer?.jerseyNumber} &middot; {selectedPlayer?.position}</p>
-            </div>
+            <p className="font-display text-2xl text-white">
+              {selectedPlayer?.firstName} {selectedPlayer?.lastName}
+            </p>
+            <p className="text-sm text-[#888]">#{selectedPlayer?.jerseyNumber} &middot; {selectedPlayer?.position}</p>
           </div>
 
           {/* Pledges summary */}
@@ -609,12 +629,19 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
                     <div>
                       <span className="text-white">{cat.label}</span>
                       <span className="text-[#555] text-sm ml-2">
-                        ${amt.toFixed(2)} &times; {stat} (2025)
+                        ${amt.toFixed(2)} / {cat.description.toLowerCase()}
+                        {hasAnyStats && <> &times; {stat} (2025)</>}
                       </span>
                     </div>
-                    <span className="text-[#CC0000] font-display text-lg">
-                      ${(amt * stat).toFixed(2)}
-                    </span>
+                    {hasAnyStats ? (
+                      <span className="text-[#CC0000] font-display text-lg">
+                        ${(amt * stat).toFixed(2)}
+                      </span>
+                    ) : (
+                      <span className="text-[#888] font-display text-sm">
+                        TBD
+                      </span>
+                    )}
                   </div>
                 );
               })}
@@ -625,11 +652,22 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
           <div className="bg-gradient-to-br from-[#1A1A1A] to-[#141414] border-2 border-[#CC0000] rounded-lg p-6 mb-4">
             <div className="flex justify-between items-center">
               <span className="font-display text-lg text-[#888]">ESTIMATED TOTAL</span>
-              <span className="font-display text-3xl text-white text-glow-red">
-                ${effectiveTotal.toFixed(2)}
-              </span>
+              {hasAnyStats ? (
+                <span className="font-display text-3xl text-white text-glow-red">
+                  ${effectiveTotal.toFixed(2)}
+                </span>
+              ) : (
+                <span className="font-display text-2xl text-white text-glow-red">
+                  TBD
+                </span>
+              )}
             </div>
-            {hasCap && (
+            {!hasAnyStats && (
+              <p className="text-sm text-[#888] mt-2">
+                Total will be calculated from {selectedPlayer?.firstName}&apos;s actual game stats
+              </p>
+            )}
+            {hasAnyStats && hasCap && (
               <p className="text-sm text-[#888] mt-2">
                 Capped at ${capNum.toFixed(2)}
                 {estimatedTotal > capNum && (
@@ -698,9 +736,20 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
 
         <div className="bg-gradient-to-br from-[#1A1A1A] to-[#141414] border-2 border-[#CC0000] rounded-lg p-8 my-8 inline-block">
           <p className="text-[#888] font-display text-sm tracking-wider mb-2">ESTIMATED SEASON DONATION</p>
-          <p className="font-display text-5xl text-white text-glow-red">
-            ${effectiveTotal.toFixed(2)}
-          </p>
+          {hasAnyStats ? (
+            <p className="font-display text-5xl text-white text-glow-red">
+              ${effectiveTotal.toFixed(2)}
+            </p>
+          ) : (
+            <>
+              <p className="font-display text-3xl text-white text-glow-red mt-1">
+                TBD
+              </p>
+              <p className="text-xs text-[#888] mt-2">
+                Based on {selectedPlayer?.firstName}&apos;s actual game stats
+              </p>
+            </>
+          )}
         </div>
 
         <div className="bg-[#141414] border border-[#333] rounded-lg p-6 text-left max-w-lg mx-auto mb-10">

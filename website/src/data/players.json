@@ -24,11 +24,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/aaron-cheng.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 12, "doubles": 2, "triples": 1, "homeRuns": 0,
+        "runsScored": 19, "rbis": 7, "stolenBases": 18, "strikeouts": 2,
+        "defensiveOuts": 10, "infieldAssists": 0, "outfieldAssists": 2, "doublePlays": 0
       }
     },
     {
@@ -55,11 +56,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/anderson-berning.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 10, "doubles": 4, "triples": 1, "homeRuns": 0,
+        "runsScored": 11, "rbis": 9, "stolenBases": 12, "strikeouts": 0,
+        "defensiveOuts": 64, "infieldAssists": 5, "outfieldAssists": 0, "doublePlays": 0
       }
     },
     {
@@ -86,11 +88,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/christopher-justen.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 13, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 15, "rbis": 5, "stolenBases": 11, "strikeouts": 2,
+        "defensiveOuts": 22, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 1
       }
     },
     {
@@ -117,11 +120,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/damon-jung.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 6, "doubles": 2, "triples": 3, "homeRuns": 0,
+        "runsScored": 8, "rbis": 5, "stolenBases": 9, "strikeouts": 0,
+        "defensiveOuts": 5, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
       }
     },
     {
@@ -148,11 +152,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/garo-balabanian.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 12, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 5, "rbis": 11, "stolenBases": 5, "strikeouts": 15,
+        "defensiveOuts": 84, "infieldAssists": 14, "outfieldAssists": 0, "doublePlays": 0
       }
     },
     {
@@ -180,11 +185,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/gavin-wu.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 10, "doubles": 2, "triples": 3, "homeRuns": 5,
+        "runsScored": 21, "rbis": 20, "stolenBases": 14, "strikeouts": 39,
+        "defensiveOuts": 8, "infieldAssists": 17, "outfieldAssists": 0, "doublePlays": 1
       }
     },
     {
@@ -211,12 +217,13 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/jackson-evans.jpg",
       "cardImage": "/images/players/jackson-evans-card.png",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 17, "doubles": 1, "triples": 0, "homeRuns": 0,
+        "runsScored": 25, "rbis": 6, "stolenBases": 24, "strikeouts": 17,
+        "defensiveOuts": 27, "infieldAssists": 35, "outfieldAssists": 0, "doublePlays": 3
       }
     },
     {
@@ -243,11 +250,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/joe-clemenson.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 2, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 8, "rbis": 2, "stolenBases": 6, "strikeouts": 0,
+        "defensiveOuts": 6, "infieldAssists": 0, "outfieldAssists": 3, "doublePlays": 0
       }
     },
     {
@@ -274,18 +282,19 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/samuel-zottarelli.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 18, "doubles": 1, "triples": 0, "homeRuns": 0,
+        "runsScored": 15, "rbis": 15, "stolenBases": 5, "strikeouts": 7,
+        "defensiveOuts": 81, "infieldAssists": 3, "outfieldAssists": 0, "doublePlays": 3
       }
     },
     {
       "id": "sawyer-lurie",
       "firstName": "Sawyer",
       "lastName": "Lurie",
-      "jerseyNumber": 27,
+      "jerseyNumber": 8,
       "position": "Center Field",
       "positions": [
         "Center Field"
@@ -305,11 +314,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/sawyer-lurie.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 4, "doubles": 0, "triples": 0, "homeRuns": 0,
+        "runsScored": 7, "rbis": 0, "stolenBases": 12, "strikeouts": 0,
+        "defensiveOuts": 9, "infieldAssists": 0, "outfieldAssists": 3, "doublePlays": 0
       }
     },
     {
@@ -337,11 +347,12 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "afox@olive-events.com",
       "image": "/images/players/xander-macdonald.jpg",
       "seasonStats2025": {
-        "singles": 0, "doubles": 0, "triples": 0, "homeRuns": 0,
-        "runsScored": 0, "rbis": 0, "stolenBases": 0, "strikeouts": 0,
-        "defensiveOuts": 0, "infieldAssists": 0, "outfieldAssists": 0, "doublePlays": 0
+        "singles": 4, "doubles": 1, "triples": 0, "homeRuns": 0,
+        "runsScored": 3, "rbis": 4, "stolenBases": 3, "strikeouts": 3,
+        "defensiveOuts": 11, "infieldAssists": 15, "outfieldAssists": 0, "doublePlays": 1
       }
     },
     {
@@ -369,6 +380,7 @@
         "runs": 0,
         "stolenBases": 0
       },
+      "parentEmail": "davebaden@gmail.com",
       "image": "/images/players/zach-baden.jpg",
       "cardImage": "/images/players/zach-baden-card.png",
       "seasonStats2025": {
