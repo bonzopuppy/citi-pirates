@@ -29,8 +29,37 @@ interface Player {
   lastName: string;
   jerseyNumber: number;
   position: string;
+  positions?: string[];
   image: string;
   seasonStats2025?: SeasonStats2025;
+}
+
+function positionAbbrev(position: string): string {
+  switch (position) {
+    case 'Pitcher': return 'P';
+    case 'Catcher': return 'C';
+    case 'First Base':
+    case 'Second Base':
+    case 'Third Base':
+    case 'Shortstop':
+    case 'Infield': return 'INF';
+    case 'Left Field':
+    case 'Center Field':
+    case 'Right Field':
+    case 'Outfield': return 'OF';
+    default: return position;
+  }
+}
+
+function positionLabel(player: Player): string {
+  const abbrevs = [positionAbbrev(player.position)];
+  if (player.positions) {
+    for (const pos of player.positions) {
+      const a = positionAbbrev(pos);
+      if (!abbrevs.includes(a)) abbrevs.push(a);
+    }
+  }
+  return abbrevs.join(' / ');
 }
 
 interface DingAThonFormProps {
@@ -297,7 +326,7 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
                         </p>
                         <p className="text-xs text-[#888] mt-1">
                           <span className="text-[#CC0000] font-display">#{player.jerseyNumber}</span>
-                          {' '}&middot;{' '}{player.position}
+                          {' '}&middot;{' '}{positionLabel(player)}
                         </p>
                       </div>
 
@@ -612,7 +641,7 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
             <p className="font-display text-2xl text-white">
               {selectedPlayer?.firstName} {selectedPlayer?.lastName}
             </p>
-            <p className="text-sm text-[#888]">#{selectedPlayer?.jerseyNumber} &middot; {selectedPlayer?.position}</p>
+            <p className="text-sm text-[#888]">#{selectedPlayer?.jerseyNumber} &middot; {selectedPlayer ? positionLabel(selectedPlayer) : ''}</p>
           </div>
 
           {/* Pledges summary */}

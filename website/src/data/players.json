@@ -39,7 +39,8 @@
       "jerseyNumber": 42,
       "position": "Catcher",
       "positions": [
-        "Catcher"
+        "Catcher",
+        "Outfield"
       ],
       "battingHand": "Right",
       "throwingHand": "Right",
@@ -71,7 +72,9 @@
       "jerseyNumber": 4,
       "position": "Left Field",
       "positions": [
-        "Left Field"
+        "Left Field",
+        "First Base",
+        "Pitcher"
       ],
       "battingHand": "Left",
       "throwingHand": "Left",
@@ -135,7 +138,9 @@
       "jerseyNumber": 18,
       "position": "Catcher",
       "positions": [
-        "Catcher"
+        "Catcher",
+        "Infield",
+        "Pitcher"
       ],
       "battingHand": "Right",
       "throwingHand": "Right",
@@ -200,7 +205,8 @@
       "jerseyNumber": 7,
       "position": "Shortstop",
       "positions": [
-        "Shortstop"
+        "Shortstop",
+        "Pitcher"
       ],
       "battingHand": "Right",
       "throwingHand": "Right",
@@ -233,7 +239,8 @@
       "jerseyNumber": 44,
       "position": "Right Field",
       "positions": [
-        "Right Field"
+        "Right Field",
+        "Infield"
       ],
       "battingHand": "Right",
       "throwingHand": "Right",
@@ -265,7 +272,8 @@
       "jerseyNumber": 46,
       "position": "First Base",
       "positions": [
-        "First Base"
+        "First Base",
+        "Pitcher"
       ],
       "battingHand": "Right",
       "throwingHand": "Right",
@@ -330,7 +338,7 @@
       "position": "Pitcher",
       "positions": [
         "Pitcher",
-        "Second Base"
+        "Shortstop"
       ],
       "battingHand": "Right",
       "throwingHand": "Right",

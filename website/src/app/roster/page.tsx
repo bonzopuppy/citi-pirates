@@ -9,16 +9,15 @@ export const metadata = {
 export default function RosterPage() {
   const { players, team } = playersData;
 
-  // Group players by position type
-  const pitchers = players.filter(p => p.position === 'Pitcher');
-  const catchers = players.filter(p => p.position === 'Catcher');
-  const infielders = players.filter(p =>
-    ['First Base', 'Second Base', 'Third Base', 'Shortstop'].includes(p.position)
-  );
-  const outfielders = players.filter(p =>
-    ['Left Field', 'Center Field', 'Right Field'].includes(p.position)
-  );
-  const utility = players.filter(p => p.position === 'Utility');
+  // Group players by position type (using positions array)
+  const hasPosition = (p: typeof players[0], positions: string[]) =>
+    p.positions?.some(pos => positions.includes(pos)) || positions.includes(p.position);
+
+  const pitchers = players.filter(p => hasPosition(p, ['Pitcher']));
+  const catchers = players.filter(p => hasPosition(p, ['Catcher']));
+  const infielders = players.filter(p => hasPosition(p, ['First Base', 'Second Base', 'Third Base', 'Shortstop', 'Infield']));
+  const outfielders = players.filter(p => hasPosition(p, ['Left Field', 'Center Field', 'Right Field', 'Outfield']));
+  const utility = players.filter(p => hasPosition(p, ['Utility']));
 
   return (
     <div className="min-h-screen bg-[#0A0A0A]">
@@ -35,7 +34,7 @@ export default function RosterPage() {
             THE ROSTER
           </h1>
           <p className="text-[#888] text-xl max-w-2xl mx-auto">
-            13 athletes. One goal. Meet the players heading to Cooperstown All-Star Village in {team.tournamentDate}.
+            12 athletes. One goal. Meet the players heading to Cooperstown All-Star Village in {team.tournamentDate}.
           </p>
         </div>
       </section>

@@ -7,6 +7,7 @@ interface Player {
   lastName: string;
   jerseyNumber: number;
   position: string;
+  positions?: string[];
   image: string | null;
   cardImage?: string | null;
   cutoutImage?: string | null;
@@ -14,6 +15,23 @@ interface Player {
 
 interface PlayerCardProps {
   player: Player;
+}
+
+function positionAbbrev(position: string): string {
+  switch (position) {
+    case 'Pitcher': return 'P';
+    case 'Catcher': return 'C';
+    case 'First Base':
+    case 'Second Base':
+    case 'Third Base':
+    case 'Shortstop': return 'INF';
+    case 'Infield': return 'INF';
+    case 'Left Field':
+    case 'Center Field':
+    case 'Right Field':
+    case 'Outfield': return 'OF';
+    default: return position;
+  }
 }
 
 export default function PlayerCard({ player }: PlayerCardProps) {
@@ -85,7 +103,10 @@ export default function PlayerCard({ player }: PlayerCardProps) {
             {/* Position badge */}
             <div className="mb-1">
               <span className="text-[#CC0000] text-[10px] font-bold uppercase tracking-wider">
-                {player.position}
+                {positionAbbrev(player.position)}
+                {player.positions && player.positions.length > 1 && (
+                  <> / {player.positions.filter(p => p !== player.position).map(positionAbbrev).join(' / ')}</>
+                )}
               </span>
             </div>
 

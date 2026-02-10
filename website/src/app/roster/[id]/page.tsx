@@ -3,6 +3,34 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import playersData from '@/data/players.json';
 
+function positionAbbrev(position: string): string {
+  switch (position) {
+    case 'Pitcher': return 'P';
+    case 'Catcher': return 'C';
+    case 'First Base':
+    case 'Second Base':
+    case 'Third Base':
+    case 'Shortstop':
+    case 'Infield': return 'INF';
+    case 'Left Field':
+    case 'Center Field':
+    case 'Right Field':
+    case 'Outfield': return 'OF';
+    default: return position;
+  }
+}
+
+function positionLabel(player: { position: string; positions?: string[] }): string {
+  const abbrevs = [positionAbbrev(player.position)];
+  if (player.positions) {
+    for (const pos of player.positions) {
+      const a = positionAbbrev(pos);
+      if (!abbrevs.includes(a)) abbrevs.push(a);
+    }
+  }
+  return abbrevs.join(' / ');
+}
+
 interface PlayerPageProps {
   params: Promise<{
     id: string;
@@ -133,7 +161,7 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#0a0a0a] via-[#0a0a0a]/95 to-transparent pt-16 pb-4 px-4">
                   <div className="mb-2">
                     <span className="text-[#CC0000] text-xs font-bold uppercase tracking-wider">
-                      {player.position}
+                      {positionLabel(player)}
                     </span>
                   </div>
                   <h3 className="font-display text-3xl md:text-4xl text-white leading-tight">
@@ -152,7 +180,7 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
             <div>
               <div className="mb-6">
                 <span className="text-[#CC0000] font-display text-lg tracking-wider">
-                  #{player.jerseyNumber} • {player.position.toUpperCase()}
+                  #{player.jerseyNumber} • {positionLabel(player)}
                 </span>
                 <h1 className="font-display text-5xl md:text-7xl text-white mt-4 text-glow-red">
                   {player.firstName}
