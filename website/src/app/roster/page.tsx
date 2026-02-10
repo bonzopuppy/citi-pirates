@@ -163,7 +163,7 @@ export default function RosterPage() {
 
               <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
                 <div className="text-center">
-                  <div className="font-display text-4xl md:text-5xl text-[#CC0000]">13</div>
+                  <div className="font-display text-4xl md:text-5xl text-[#CC0000]">12</div>
                   <div className="text-[#888] text-sm uppercase tracking-wider mt-1">Players</div>
                 </div>
                 <div className="text-center">

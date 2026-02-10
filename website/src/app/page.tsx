@@ -105,7 +105,7 @@ export default function Home() {
 
               <div className="grid grid-cols-3 gap-4 mt-8">
                 <div className="stat-box rounded">
-                  <div className="stat-value">13</div>
+                  <div className="stat-value">12</div>
                   <div className="stat-label">Players</div>
                 </div>
                 <div className="stat-box rounded">
