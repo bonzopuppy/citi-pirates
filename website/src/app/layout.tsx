@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { Analytics } from '@vercel/analytics/react';
+import PostHogProvider from '@/components/PostHogProvider';
 import './globals.css';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -38,9 +40,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen flex flex-col antialiased">
-        <Header />
-        <main className="flex-1 pt-16 md:pt-20">{children}</main>
-        <Footer />
+        <PostHogProvider>
+          <Header />
+          <main className="flex-1 pt-16 md:pt-20">{children}</main>
+          <Footer />
+        </PostHogProvider>
+        <Analytics />
       </body>
     </html>
   );

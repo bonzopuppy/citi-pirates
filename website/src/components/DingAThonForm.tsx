@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo, useEffect } from 'react';
+import { usePostHog } from 'posthog-js/react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -96,6 +97,8 @@ const DEFAULT_STATS: SeasonStats2025 = {
 /* ------------------------------------------------------------------ */
 
 export default function DingAThonForm({ players }: DingAThonFormProps) {
+  const posthog = usePostHog();
+
   // Steps: 0=intro+player, 1=pledges, 2=info+cap, 3=review, 4=confirmation
   const [step, setStep] = useState(0);
   const [selectedPlayerId, setSelectedPlayerId] = useState<string | null>(null);
@@ -109,6 +112,11 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [step]);
+
+  // Funnel event: page viewed
+  useEffect(() => {
+    posthog?.capture('dingathon_page_viewed');
+  }, [posthog]);
 
   const selectedPlayer = players.find((p) => p.id === selectedPlayerId);
   const playerStats = selectedPlayer?.seasonStats2025 || DEFAULT_STATS;
@@ -162,6 +170,13 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
         throw new Error(data.error || 'Submission failed');
       }
 
+      posthog?.capture('dingathon_submitted', {
+        player_id: selectedPlayerId,
+        player_name: `${selectedPlayer?.firstName} ${selectedPlayer?.lastName}`,
+        estimated_total: effectiveTotal,
+        num_pledges: nonZeroPledges.length,
+        has_cap: !!(parseFloat(cap) > 0),
+      });
       setStep(4);
     } catch (err) {
       setSubmitError(err instanceof Error ? err.message : 'Something went wrong');
@@ -287,7 +302,13 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
                 return (
                   <button
                     key={player.id}
-                    onClick={() => setSelectedPlayerId(player.id)}
+                    onClick={() => {
+                      setSelectedPlayerId(player.id);
+                      posthog?.capture('dingathon_player_selected', {
+                        player_id: player.id,
+                        player_name: `${player.firstName} ${player.lastName}`,
+                      });
+                    }}
                     className={`relative group text-left rounded-lg overflow-hidden transition-all duration-300 ${
                       isSelected
                         ? 'ring-2 ring-[#CC0000] ring-offset-2 ring-offset-[#0F0F0F] scale-[1.01]'
@@ -481,7 +502,14 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
                 BACK
               </button>
               <button
-                onClick={() => setStep(2)}
+                onClick={() => {
+                  posthog?.capture('dingathon_pledges_set', {
+                    player_id: selectedPlayerId,
+                    num_pledges: nonZeroPledges.length,
+                    estimated_total: estimatedTotal,
+                  });
+                  setStep(2);
+                }}
                 disabled={!canProceedStep1}
                 className={`btn-primary flex-1 ${
                   !canProceedStep1 ? 'opacity-30 cursor-not-allowed !transform-none' : ''
@@ -593,7 +621,13 @@ export default function DingAThonForm({ players }: DingAThonFormProps) {
               BACK
             </button>
             <button
-              onClick={() => setStep(3)}
+              onClick={() => {
+                posthog?.capture('dingathon_donor_info_entered', {
+                  player_id: selectedPlayerId,
+                  has_cap: !!(parseFloat(cap) > 0),
+                });
+                setStep(3);
+              }}
               disabled={!canProceedStep2}
               className={`btn-primary flex-1 ${
                 !canProceedStep2 ? 'opacity-30 cursor-not-allowed !transform-none' : ''
