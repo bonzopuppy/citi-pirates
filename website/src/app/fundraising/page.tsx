@@ -19,7 +19,7 @@ export default function FundraisingPage() {
         </svg>
       ),
       title: 'Travel',
-      description: 'Flights and ground transportation for 13 players',
+      description: 'Flights and ground transportation for 12 players',
     },
     {
       icon: (
@@ -160,7 +160,7 @@ export default function FundraisingPage() {
                 destination for youth baseball players from across the nation.
               </p>
               <p className="text-[#888] text-lg leading-relaxed">
-                Our 13 players will compete against elite teams, stay in authentic team
+                Our 12 players will compete against elite teams, stay in authentic team
                 barracks, trade pins with players from across the country, and play under
                 the lights on fields that mirror the magic of professional stadiums.
               </p>

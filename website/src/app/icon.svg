@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Baseball with red stitching -->
+  <circle cx="32" cy="32" r="28" fill="#f5f0e8" stroke="#ccc" stroke-width="1.5"/>
+  <!-- Left stitching curve -->
+  <path d="M22 8 Q14 20 14 32 Q14 44 22 56" fill="none" stroke="#d63a1e" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Left stitch marks -->
+  <line x1="19" y1="12" x2="24" y2="14" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="16" y1="17" x2="21" y2="18" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="14.5" y1="22" x2="19.5" y2="22.5" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="14" y1="27" x2="19" y2="27" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="14" y1="32" x2="19" y2="32" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="14" y1="37" x2="19" y2="37" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="14.5" y1="42" x2="19.5" y2="41.5" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="16" y1="47" x2="21" y2="46" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="19" y1="52" x2="24" y2="50" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <!-- Right stitching curve -->
+  <path d="M42 8 Q50 20 50 32 Q50 44 42 56" fill="none" stroke="#d63a1e" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- Right stitch marks -->
+  <line x1="45" y1="12" x2="40" y2="14" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="48" y1="17" x2="43" y2="18" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="49.5" y1="22" x2="44.5" y2="22.5" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="50" y1="27" x2="45" y2="27" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="50" y1="32" x2="45" y2="32" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="50" y1="37" x2="45" y2="37" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="49.5" y1="42" x2="44.5" y2="41.5" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="48" y1="47" x2="43" y2="46" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+  <line x1="45" y1="52" x2="40" y2="50" stroke="#d63a1e" stroke-width="1.8" stroke-linecap="round"/>
+</svg>

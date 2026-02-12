@@ -365,7 +365,7 @@ export default async function PlayerPage({ params }: PlayerPageProps) {
             Help send {player.firstName} and the entire Citi Pirates team to
             Cooperstown All-Star Village!
           </p>
-          <Link href="/fundraising" className="btn-primary">
+          <Link href="/ding-a-thon" className="btn-primary">
             DONATE NOW
           </Link>
         </div>

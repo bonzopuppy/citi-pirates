@@ -3,7 +3,7 @@ import playersData from '@/data/players.json';
 
 export const metadata = {
   title: 'Roster | Citi Pirates 12U Baseball',
-  description: 'Meet the 13 players of the Citi Pirates 12U Baseball team heading to Cooperstown All-Star Village in Summer 2026.',
+  description: 'Meet the 12 players of the Citi Pirates 12U Baseball team heading to Cooperstown All-Star Village in Summer 2026.',
 };
 
 export default function RosterPage() {

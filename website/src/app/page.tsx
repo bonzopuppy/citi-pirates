@@ -81,7 +81,7 @@ export default function Home() {
                 a week of competition, camaraderie, and unforgettable memories.
               </p>
               <p className="text-[#888] text-lg leading-relaxed mt-4">
-                Help us give these 13 young athletes the experience of a
+                Help us give these 12 young athletes the experience of a
                 lifetime. Your support covers travel, lodging, tournament fees,
                 and equipment.
               </p>
